@@ -159,10 +159,6 @@ segmentation/
 - 大きな解像度の入力では処理に時間がかかる場合があります
 - FastSAM-s は軽量ですが精度が低下する場合があります
 
-## 📜 ライセンス
-
-このプロジェクトは MIT ライセンスの下で配布されています。詳細は[LICENSE](./LICENSE)ファイルを参照してください。
-
 ## 👏 謝辞
 
 - [MobileSAM](https://github.com/ChaoningZhang/MobileSAM) - 効率的なモバイル SAM の実装
