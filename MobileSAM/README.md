@@ -1,6 +1,6 @@
 # MobileSAM 動画セグメンテーション
 
-MobileSAM（Mobile Segment Anything Model）を使用して、動画や画像、カメラ入力に対してセグメンテーション処理を行うツールです。MobileSAM は、元の SAM モデルの約 5 倍軽量で、7 倍高速な軽量版のセグメンテーションモデルです。
+MobileSAM（Mobile Segment Anything Model）を使用して、動画や画像、カメラ入力に対してセグメンテーション処理を行うツールです。
 
 ## 特徴
 
@@ -81,15 +81,6 @@ python video_segment.py --video <動画ファイルパス> --display-scale 0.7
 python video_segment.py --video <動画ファイルパス> --mask-alpha 0.5
 ```
 
-## MobileSAM と FastSAM の比較
-
-| モデル    | サイズ(MB) | パラメータ数(M) | CPU 速度(ms/画像) |
-| --------- | ---------- | --------------- | ----------------- |
-| FastSAM-s | 23.7       | 11.8            | 140               |
-| MobileSAM | 40.7       | 10.1            | 98543             |
-
-MobileSAM はモデルサイズがコンパクトで高速な推論が可能ですが、CPU での実行は遅いため、可能な限り GPU の使用をお勧めします。
-
 ## コマンドラインオプション一覧
 
 ```
@@ -133,8 +124,3 @@ MobileSAM はモデルサイズがコンパクトで高速な推論が可能で�
   --no-overlay          マスクオーバーレイを無効化
   --no-contours         輪郭描画を無効化
 ```
-
-## 参考
-
-- [MobileSAM 論文](https://arxiv.org/abs/2306.14289)
-- [Ultralytics MobileSAM](https://docs.ultralytics.com/models/mobile-sam/)
