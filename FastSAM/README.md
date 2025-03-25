@@ -1,37 +1,29 @@
 # FastSAM 動画セグメンテーションツール
 
-![FastSAM](https://img.shields.io/badge/FastSAM-Segment%20Anything%20Fast-blue)
-![Python](https://img.shields.io/badge/Python-3.6%2B-brightgreen)
-![PyTorch](https://img.shields.io/badge/PyTorch-1.7%2B-orange)
-![License](https://img.shields.io/badge/License-MIT-green)
-
 このツールは、Ultralytics 社の FastSAM モデルを使用して動画、画像シーケンス、またはカメラのリアルタイム映像のセグメンテーションを行うための Python スクリプトです。各フレームに対してセグメンテーションを適用し、結果を動画および定期的なフレーム画像として保存します。
 
-<img src="https://github.com/CASIA-IVA-Lab/FastSAM/raw/main/assets/showcase.png" alt="FastSAM Showcase" width="600"/>
-
-## 📋 機能
+## 機能
 
 - **複数の入力ソースに対応**:
-  - 📹 動画ファイルのセグメンテーション
-  - 🖼️ 画像シーケンス（連番画像）のセグメンテーション
-  - 📷 Web カメラなどからのリアルタイム入力のセグメンテーション
-- 🖥️ GPU の自動検出とフォールバック機能
-- 🔄 入力動画サイズに合わせた最適な処理サイズの自動調整
-- 💾 セグメンテーション結果の動画保存
-- 📊 定期的なフレームの JPEG 画像として保存
-- 👁️ リアルタイムでのプレビュー表示
-- 📸 カメラモードでのスナップショット保存機能
+  - 動画ファイルのセグメンテーション
+  - 画像シーケンス（連番画像）のセグメンテーション
+  - Web カメラなどからのリアルタイム入力のセグメンテーション
+- GPU の自動検出とフォールバック機能
+- 入力動画サイズに合わせた最適な処理サイズの自動調整
+- セグメンテーション結果の動画保存
+- 定期的なフレームの JPEG 画像として保存
+- リアルタイムでのプレビュー表示
+- カメラモードでのスナップショット保存機能
 
-## 🔧 必要条件
+## 必要条件
 
-- Python 3.6 以上
 - 以下の Python パッケージ:
   - ultralytics または FastSAM リポジトリ
   - opencv-python
   - numpy
   - torch
 
-## ⚙️ インストール方法
+## インストール方法
 
 ### 方法 1: ultralytics パッケージを使用する場合（推奨）
 
@@ -76,7 +68,7 @@ pip install -r requirements.txt
 
 4. ダウンロードしたモデルをスクリプトと同じディレクトリに配置します。
 
-## 🚀 使用方法
+## 使用方法
 
 ### 動画ファイルの処理
 
@@ -142,7 +134,7 @@ python video_segment.py --video <動画ファイルのパス> --model-path path/
 | --no-save                          | フレームを保存しない                                 | False                |
 | --no-show                          | フレームを表示しない                                 | False                |
 
-## 💻 使用例
+## 使用例
 
 ### 動画ファイルを処理
 
@@ -180,25 +172,12 @@ python video_segment.py --video sample/video.mp4 --conf 0.5 --iou 0.6
 python video_segment.py --video sample/video.mp4 --model-path FastSAM-x.pt
 ```
 
-## 🎮 操作方法
+## 操作方法
 
 - 表示ウィンドウで`q`キーを押すと処理を終了します
 - カメラモードで`s`キーを押すと現在のフレームのスナップショットを保存します
 
-## 🚀 パフォーマンス向上のヒント
-
-- **処理速度を優先する場合**:
-
-  - `--model FastSAM-s`を使用する
-  - 処理サイズを小さくする（`--imgsz 320`など）
-  - `--no-retina`オプションを使用して高品質マスクを無効化
-
-- **精度を優先する場合**:
-  - `--model FastSAM-x`を使用する（デフォルト）
-  - 入力サイズを大きくする（または自動設定を利用）
-  - 信頼度しきい値を調整する（`--conf 0.6`など）
-
-## ❓ トラブルシューティング
+## トラブルシューティング
 
 ### ImportError: cannot import name 'FastSAM' from 'ultralytics'
 
@@ -221,24 +200,8 @@ python video_segment.py --video sample/video.mp4 --model-path FastSAM-x.pt
    python video_segment.py --video sample/video.mp4 --model-path FastSAM-x.pt
    ```
 
-## 📚 出力ファイル
+## 出力ファイル
 
 - セグメンテーションされた動画: `<出力ディレクトリ>/segmented_output.mp4`
 - サンプルフレーム画像: `<出力ディレクトリ>/frame_XXXXXX.jpg`（30 フレームごと）
 - カメラモードでのスナップショット: `<出力ディレクトリ>/snapshot_YYYYMMDD_HHMMSS.jpg`
-
-## ⚠️ 注意点
-
-- GPU メモリが足りない場合は自動的に CPU にフォールバックします
-- 大きな解像度の動画や画像では処理に時間がかかる場合があります
-- カメラ入力では、カメラのサポートする解像度によって実際の出力サイズが制限される場合があります
-- 画像シーケンスは名前順にソートされて処理されます
-
-## 📜 ライセンス
-
-このプロジェクトは MIT ライセンスのもとで提供されています。
-
-## 👏 謝辞
-
-- [FastSAM](https://github.com/CASIA-IVA-Lab/FastSAM) - 高速なセグメンテーションモデル
-- [Ultralytics](https://github.com/ultralytics/ultralytics) - YOLO と SAM の実装
