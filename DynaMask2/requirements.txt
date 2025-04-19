@@ -1,0 +1,16 @@
+# 基本的な依存ライブラリ
+numpy
+opencv-python
+
+# 機械学習・DLフレームワーク
+# torch は環境に合わせてインストールしてください (例: CUDA 12.1 -> pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121)
+# torch
+# torchvision
+# torchaudio
+
+# 主要なモデルライブラリ
+ultralytics>=8.0.0 # YOLOv8, FastSAM 機能を含む
+mediapipe>=0.10.0 # ポーズ・手検出
+
+# その他 (型のチェックなど、開発時に有用)
+# typing-extensions
